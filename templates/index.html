@@ -16,42 +16,17 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-10">
+                    {% for b in blocks %}
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <a href="#" style="font-size:16px">日常专区</a>
-                          <span class="pull-right">管理员</span>
+                        <a href="#" style="font-size:16px">{{b.name}}</a>
+                          <span class="pull-right">{{b.manager}}</span>
                       </div>
                       <div class="panel-body">
-                        一个栗子
+                        {{ b.desc }}
                       </div>
                     </div>
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <a href="#" style="font-size:16px">日常专区</a>
-                          <span class="pull-right">管理员</span>
-                      </div>
-                      <div class="panel-body">
-                        一个栗子
-                      </div>
-                    </div>
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <a href="#" style="font-size:16px">日常专区</a>
-                          <span class="pull-right">管理员</span>
-                      </div>
-                      <div class="panel-body">
-                        一个栗子
-                      </div>
-                    </div>
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                        <a href="#" style="font-size:16px">日常专区</a>
-                          <span class="pull-right">管理员</span>
-                      </div>
-                      <div class="panel-body">
-                        一个栗子
-                      </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="col-xs-12 col-md-2">
                     <div class="well">
