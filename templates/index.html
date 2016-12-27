@@ -1,25 +1,27 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <title>部落冲突论坛</title>
-        <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-12">
-                    <div class="jumbotron">
-                      <center><h1>部落冲突论坛</h1></center>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
+<!--<!doctype html>-->
+<!--<html>-->
+    <!--<head>-->
+        <!--<meta charset="utf-8"/>-->
+        <!--<title>部落冲突论坛</title>-->
+        <!--<link rel="stylesheet" href="/static/css/bootstrap.min.css" />-->
+    <!--</head>-->
+    <!--<body>-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-xs-12 col-md-12">-->
+                    <!--<div class="jumbotron">-->
+                      <!--<center><h1>部落冲突论坛</h1></center>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+                {% extends "base.html" %}
+                {% block content %}
                 <div class="col-xs-12 col-md-10">
                     {% for b in blocks %}
                     <div class="panel panel-default">
                       <div class="panel-heading">
-                        <a href="#" style="font-size:16px">{{b.name}}</a>
+                        <a href="/article/list/{{b.id}}" style="font-size:16px">{{b.name}}</a>
                           <span class="pull-right">{{b.manager_name}}</span>
                       </div>
                       <div class="panel-body">
@@ -30,10 +32,11 @@
                 </div>
                 <div class="col-xs-12 col-md-2">
                     <div class="well">
-                        论坛建设
+                        个人中心
                     </div>
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
+                {% endblock %}
+            <!--</div>-->
+        <!--</div>-->
+    <!--</body>-->
+<!--</html>-->
