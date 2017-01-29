@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+    {% block content %}
+        <div class="col-xs-12">
+        <ol class="breadcrumb">
+            <li><a href="/">首页</a> </li>
+            <li><a href="/article/list/{{a.block.id}}">{{a.block}}</a> </li>
+            <li class="active">{{a.title}}</li>
+        </ol>
+        </div>
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1><big>{{a.title}}</big> <small>{{a.create_timestamp}}</small></h1>
+            </div>
+        </div>
+        <div class="col-xs-12">
+           <div class="well">{{a.content}}</div>
+        </div>
+    {% endblock %}

@@ -24,23 +24,10 @@ def article_create(request, block_id):
             acticle.block = block
             acticle.status = 0
             acticle.save()
-        #     article = Article(block=block, title=form.clean_data["title"],
-        #                       content=form.changed_data["content"], status=0)
-        #     article.save()
             return  redirect("/article/list/%s" % block_id)
         else:
             return render(request, "article_create.html", {"b": block, "error": "标题和内容都不能为空。","form":form})
-                                                           #  "title": request.POST["title"],
-                                                           # "content": request.POST["content"]})
-        # title = request.POST["title"]
-        # content = request.POST["content"]
-        # if not title or not content:
-        #     return render(request, "article_create.html", {"b": block, "error": "标题和内容都不能为空。",
-        #                                                    "title": title, "content": content})
-        # if len(title)>100 or len(content)>10000:
-        #     return render(request, "article_create.html", {"b": block,
-        #                                                    "error": "标题不能超过100字/n内容不能超过10000字",
-        #                                                    "title": title, "content": content})
-        # article = Article(block=block, title=title, content=content, status=0)
-        # article.save()
-        # return redirect("/article/list/%s" % block_id)
+
+def article_detail(request, aid):
+    article = Article.objects.get(id=aid)
+    return render(request, "article_detail.html", {"a": article})
