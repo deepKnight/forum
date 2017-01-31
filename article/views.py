@@ -1,15 +1,20 @@
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from article.models import Article
 from block.models import Block
 from article.forms import ActicleForm
-
+ARTICLE_CNT_1PAGE = 15
 
 def article_list(request, block_id):
     block_id = int(block_id)
     block = Block.objects.get(id=block_id)
-    articles_objs = Article.objects.filter(block=block, status=0).order_by("-id")
-    return render(request, "article_list.html", {"articles": articles_objs, "b": block})
+    page_no = int(request.GET.get("page_no", "1"))
+    all_articles = Article.objects.filter(block=block, status=0).order_by("-id")
+    p = Paginator(all_articles, ARTICLE_CNT_1PAGE)
+    page = p.page(page_no)
+    articles_objs = page.object_list
+    return render(request, "article_list.html", {"articles": articles_objs, "b": block, "paginator": p, "page": page})
 
 
 def article_create(request, block_id):

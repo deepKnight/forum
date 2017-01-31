@@ -28,5 +28,37 @@
                 {% endfor %}
             </tbody>
         </table>
+        <center>
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+                <li>
+                    {% if page.has_previous %}
+                      <a href="?page_no={{page.previous_page_number}}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    {% else %}
+                        <span aria-hidden="true">&laquo;</span>
+                    {% endif %}
+
+                </li>
+                  {% for x in paginator.page_range %}
+                    {% if x == page.number %}
+                        <li class="active"><a href="?page_no={{x}}">{{x}}</a></li>
+                    {% else %}
+                        <li ><a href="?page_no={{x}}">{{x}}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                <li>
+                    {% if page.has_next %}
+                      <a href="?page_no={{page.next_page_number}}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    {% else %}
+                        <span aria-hidden="true">&raquo;</span>
+                    {% endif %}
+                </li>
+          </ul>
+        </nav>
+            </center>
     </div>
     {% endblock %}
